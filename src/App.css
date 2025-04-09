@@ -3,40 +3,169 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  transition: background 0.5s ease-in-out;
+  color: #000000; /* Changed to black */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Default background (fallback) */
+.default {
+  background: linear-gradient(to top, #0f2027, #203a43, #2c5364);
+  color: #ffffff; /* Optional override for dark background */
 }
 
-@keyframes logo-spin {
+/* Sunny background */
+.sunny {
+  background: url('https://images.unsplash.com/photo-1501973801540-537f08ccae7b?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+}
+
+/* Rainy background */
+.rainy {
+  background: url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+}
+
+/* Cold or snowy background */
+.cold {
+  background: url('https://images.unsplash.com/photo-1608889175600-79acbb7cfe62?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+}
+
+/* Foggy or misty background */
+.foggy {
+  background: url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+}
+
+/* Cloudy or overcast background */
+.cloudy {
+  background: url('https://images.unsplash.com/photo-1505245208761-ba872912fac0?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+}
+
+h1 {
+  font-size: 3.5rem;
+  color: #000000; /* Changed to black */
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5); /* Optional for contrast */
+  margin-bottom: 1.5rem;
+  animation: fadeInDown 1s ease;
+}
+
+input {
+  padding: 15px;
+  border: none;
+  border-radius: 12px;
+  width: 250px;
+  font-size: 1rem;
+  background: #ffffffee;
+  color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 15px #00eaff;
+}
+
+button {
+  margin-left: 10px;
+  padding: 15px 25px;
+  background-color: #00eaff;
+  color: #003344;
+  font-weight: bold;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 234, 255, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background-color: #b2fefa;
+}
+
+.weather-card {
+  background: rgba(255, 255, 255, 0.5); /* Light background for black text */
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-top: 2rem;
+  color: #000000; /* Changed to black */
+  text-shadow: none;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease-in-out;
+  animation: fadeInUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+.weather-card.show {
+  opacity: 1;
+}
+
+.weather-card img {
+  width: 100px;
+  margin: 1rem auto;
+}
+
+.weather-card p {
+  font-size: 1.3rem;
+  margin: 0.5rem 0;
+}
+
+@keyframes fadeInDown {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(-30px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-.card {
-  padding: 2em;
+/* Loader style */
+.loading {
+  font-size: 1.2rem;
+  color: #003344; /* Dark blue for visibility */
+  animation: pulse 1s infinite;
+  text-shadow: none;
 }
 
-.read-the-docs {
-  color: #888;
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 600px) {
+  input {
+    width: 80%;
+    margin-bottom: 10px;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .weather-card {
+    padding: 1.5rem;
+  }
 }
